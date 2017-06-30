@@ -44,12 +44,21 @@ public class MainActivity extends CommonActivity {
                 startActivityForResult(intent, BACK_TEST);
             }
         });
+
+        Button imageButton = (Button) findViewById(R.id.iamge_button);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent imageIntent = new Intent(MainActivity.this, ImageActivity.class);
+                startActivity(imageIntent);
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.e(TAG, "onActivityResult: " + data.getStringExtra("back"), null);
+        Log.e(TAG, "onActivityResult: ", null);
 
         if (requestCode == BACK_TEST && resultCode == RESULT_OK) {
             Toast.makeText(this, "BackMsg:" + data.getStringExtra("back"), Toast.LENGTH_SHORT).show();

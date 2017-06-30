@@ -31,7 +31,7 @@ public class DataActivity extends CommonActivity {
                 intent.putExtra("back", "back");
                 // 设置 Result
                 setResult(RESULT_OK, intent);
-                // 结束当前活动
+                // 结束当前活动(只有在 Finish 之后才能收到 Result)
                 DataActivity.this.finish();
             }
         });
